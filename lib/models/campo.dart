@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'explosao_exception.dart';
 class Campo {
   final int linha;
@@ -16,9 +15,11 @@ class Campo {
 
   void adicionarVizinho(Campo vizinho){
     final deltaLinha = (linha - vizinho.linha).abs();
-    final deltaColuna = (coluna - vizinho.linha).abs();
-    if(deltaLinha == 0 && deltaColuna == 0) return;
-    if(deltaLinha <= 1 && deltaColuna <=1) vizinhos.add(vizinho);
+    final deltaColuna = (coluna - vizinho.coluna).abs();
+    if(deltaLinha == 0 && deltaColuna == 0) {return;};
+    if(deltaLinha <= 1 && deltaColuna <= 1) {
+      vizinhos.add(vizinho);
+    }
   }
 
   void abrir(){
